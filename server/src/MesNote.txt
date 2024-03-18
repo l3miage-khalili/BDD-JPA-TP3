@@ -1,0 +1,32 @@
+Un repository :
+- une interface
+- hérite de JpaRepository<T,ID>, T étant le type d'entité, et ID le type de l'id
+dans l'entité (l'attribut qui porte le @Id)
+- permet de faire les opérations CRUD
+
+Les étapes pour créer un Repository :
+1. Créer l'interface
+2. L'étendre de l'interface JpaRepository<T,ID>
+3. Rajouter le décorateur @Repository
+
+Ce qu'il faut faire dans un component :
+1. ajouter le décorateur @Component
+2. ajouter le décorateur @RequiredArgsConstructor
+3. ajouter l'attribut final repository
+4. ajouter les méthodes CRUD (sont tous public) :
+    Read : utiliser xRepository.findById(id).orElseThrow()
+    Create :
+      - renvoie une entité
+      - utiliser la méthode XEntity.builder()
+                                    .champ1()
+                                    .champ2()
+                                    .build()
+      - return xRepository.save(deLEntiteCree)
+    Update :
+        - renvoie une entité
+        - recupérer l'entite à mettre à jour via le getter
+        - faire entite.set
+        - return xRepository.save(deLEntiteMAJ)
+    Delete :
+        - utiliser xRepository.deleteById()
+5. Ajouter des éventuelles méthodes particulières (creation des requêtes par interpolation de nom de fonctions)
