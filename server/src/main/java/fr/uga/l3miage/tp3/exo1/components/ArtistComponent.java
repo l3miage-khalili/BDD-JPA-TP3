@@ -28,4 +28,6 @@ public class ArtistComponent {
         artistRepository.deleteById(name);
     }
 
+
+
 }

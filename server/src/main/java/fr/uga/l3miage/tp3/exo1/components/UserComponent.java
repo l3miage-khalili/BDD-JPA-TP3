@@ -17,13 +17,7 @@ public class UserComponent {
         return userRepository.findById(name).orElseThrow();
     }
 
-    public UserEntity createUser(){
-        UserEntity userEntity = UserEntity
-                .builder()
-                .mail("user@user.com")
-                .name("user")
-                .playlistEntities(Set.of())
-                .build();
+    public UserEntity createUser(UserEntity userEntity){
         return userRepository.save(userEntity);
     }
 

@@ -12,7 +12,7 @@ Les étapes pour créer un Repository :
 Ce qu'il faut faire dans un component :
 1. ajouter le décorateur @Component
 2. ajouter le décorateur @RequiredArgsConstructor
-3. ajouter l'attribut final repository
+3. ajouter l'attribut final xRepository
 4. ajouter les méthodes CRUD (sont tous public) :
     Read : utiliser xRepository.findById(id).orElseThrow()
     Create :
