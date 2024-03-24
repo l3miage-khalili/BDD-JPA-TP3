@@ -1,5 +1,6 @@
 package fr.uga.l3miage.tp3.exo1.components;
 
+import fr.uga.l3miage.tp3.exo1.enums.GenreMusical;
 import fr.uga.l3miage.tp3.exo1.models.ArtistEntity;
 import fr.uga.l3miage.tp3.exo1.repositories.ArtistRepository;
 import lombok.RequiredArgsConstructor;
@@ -28,6 +29,9 @@ public class ArtistComponent {
         artistRepository.deleteById(name);
     }
 
+    public int getArtistsNumberByGenreMusical(GenreMusical genreMusical){
+        return artistRepository.countAllByGenreMusical(genreMusical) ;
+    }
 
 
 }

@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.time.Duration;
+import java.util.Set;
 
 @Component
 @RequiredArgsConstructor
@@ -28,5 +29,9 @@ public class SongComponent {
 
     public void deleteSong(String title){
         songRepository.deleteById(title);
+    }
+
+    public Set<SongEntity> getSongDurationIsBetween(long minSeconds, long maxSeconds){
+        return songRepository.findAllByDurationSecondsIsBetween(minSeconds, maxSeconds) ;
     }
 }
